@@ -11,4 +11,5 @@ console.log({ name, hpPoints, isAlive });
 // Indicar este export para evitar el error:
 // Cannot redeclare block-scoped variable 'name'
 // Es un tema propio de Vite, no de TypeScript o Angular.
+// Así tratamos este archivo como un módulo
 export {};
