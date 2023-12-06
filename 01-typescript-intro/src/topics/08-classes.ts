@@ -35,3 +35,23 @@ export class Hero extends Person2 {
 
 const superman = new Hero('Superman', 35, 'Clark Kent');
 console.log(superman);
+
+//? Priorizar composición sobre herencia
+// Vamos a priorizar la composición sobre la herencia.
+export class Hero2 {
+  //public person: Person2;
+
+  constructor(public alterEgo: string, public age: number, public realName: string, public person: Person2) {
+    // Inconveniente: tenemos la dependencia directamente en nuestro código.
+    // Por eso la declaramos fuera y la inyectamos en el constructor
+    //
+    //this.person = new Person2(realName);
+  }
+}
+
+// Inyectando person en el constructor, si Person2 cambia, no afecta a Hero2.
+// Además, creándola aquí, podemos inyectarla, si es necesario, a otras clases.
+const bruce = new Person2('Bruce Wayne', 'Gotham');
+
+const batman = new Hero2('Batman', 38, 'Bruce Wayne', bruce);
+console.log(batman);
