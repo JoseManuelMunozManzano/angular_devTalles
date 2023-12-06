@@ -5,7 +5,8 @@ import './style.css';
 // import './topics/04-homework-types';
 // import './topics/05-basic-destructuring';
 // import './topics/06-function-destructuring_excercise';
-import './topics/06-function-destructuring_resolve';
+// import './topics/06-function-destructuring_resolve';
+import './topics/07-import-export';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 Hola Mundo
