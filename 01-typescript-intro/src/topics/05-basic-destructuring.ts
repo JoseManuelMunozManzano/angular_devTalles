@@ -1,4 +1,4 @@
-// Desestructuración
+//? Desestructuración de Objetos
 
 interface AudioPlayer {
   audioVolume: number;
@@ -37,5 +37,17 @@ const { author } = details; // más fácil de leer
 console.log('Song:', anotherSong);
 console.log('Duration:', duration);
 console.log('Author:', author);
+
+//? Desestructuración de Arreglos
+
+// Sin desestructuración
+const dbz: string[] = ['Goku', 'Vegeta', 'Trunks'];
+const trunks_1 = dbz[3] || 'No hay personaje';
+
+console.error('Personaje 3:', trunks_1);
+
+// Con desestructuración
+const [, , trunks = 'No hay personaje']: string[] = ['Goku', 'Vegeta'];
+console.error('Personaje 3:', trunks);
 
 export {};
