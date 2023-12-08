@@ -9,6 +9,8 @@ Luego sustituimos el nombre a 02-bases
 
 ### Ejecución del proyecto usando el CLI
 
+Si descargamos el fuente de GitHub, primero instalar los módulos de node: `npm i`
+
 Para ver como luce el proyecto en modo desarrollo, desde la terminal ejecutar el comando CLI: `ng serve`
 
 Ir a la ruta indicada en la terminal: `http://localhost:4200/`
