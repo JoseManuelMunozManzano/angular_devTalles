@@ -34,3 +34,9 @@ Y para ejecutar nuestro proyecto ejecutaremos: `npm start`
 ### Estructura de ficheros del proyecto
 
 Ir a la ruta siguiente: https://angular.io/guide/file-structure
+
+### Formas de crear componentes independientes
+
+Usando la extensión Angular Snippets podemos, en un fichero recién creado y vacío, escribir: `a-component` y pulsar Tab.
+
+Para ver todos los snippets disponibles escribir `a-`
