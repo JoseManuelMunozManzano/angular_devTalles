@@ -81,3 +81,13 @@ E igual para /list
 ## Interpolación de valores
 
 Ir a la ruta siguiente: https://angular.io/guide/interpolation
+
+## Enlazado en una sola vía (One way data binding)
+
+One way data binding se refiere a que, al cambiar un valor de variable en el componente, se actualiza el valor en el template html.
+
+Angular maneja el two way data binding, es decir, si cambio desde el lado del template html una variable, también se actualiza esa variable en el componente.
+
+En las aplicaciones de Angular hay que tratar de priorizar el one way data binding.
+
+De todas formas, Angular es capaz de evitar bucles infinitos en el que un cambio en el template fuerza un cambio en el componente, que fuerza de nuevo el cambio en el template...
