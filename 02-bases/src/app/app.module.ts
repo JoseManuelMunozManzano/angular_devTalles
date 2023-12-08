@@ -3,13 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { CounterModule } from './counter/counter.module';
+import { HeroesModule } from './heroes/heroes.module';
 
 import { AppComponent } from './app.component';
-import { HeroComponent } from './heroes/hero/hero.component';
-import { ListComponent } from './heroes/list/list.component';
 
 @NgModule({
-  declarations: [AppComponent, HeroComponent, ListComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -18,6 +17,7 @@ import { ListComponent } from './heroes/list/list.component';
     // lo que tenemos que importar ES EL MODULO!!
     // Memorizar: Se importan los módulos
     CounterModule,
+    HeroesModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

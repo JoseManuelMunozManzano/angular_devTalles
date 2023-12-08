@@ -100,7 +100,7 @@ Cualquier aplicación de Angular DEBE tener más de un módulo (salvo que la app
 
 Como ya es un poco grande, vamos a separar los componentes que aparecen en app.module.ts.
 
-Se pueden crear módulos en Angular usando el CLI, mediante snippets, o manualmente.
+Se pueden crear módulos en Angular usando el CLI, mediante snippets (a-module), o manualmente.
 
 Dentro de la carpeta counter, vamos a crearnos otra carpeta llamada components.
 
@@ -110,6 +110,9 @@ La idea de nuestro módulo personalizado es que me sirva para agrupar todo lo re
 
 Creamos un archivo en app/counter llamado counter.module.ts y llevamos ahí la definición de los componentes de counter.
 
-Exportaremos los COMPONENTES que queramos exponer al mundo exterior e importaremos el MÓDULO dentro de los módulos donde queramos usar esos componentes.
+En este nuevo módulo exportaremos los COMPONENTES, otros MÓDULOS o lo que queramos exponer al mundo exterior, e importaremos el nuevo MÓDULO dentro de los módulos donde queramos usar esos componentes.
 
 Así se separan componentes en distintos módulos.
+
+NOTA: Si se usan directivas (*ngIf, *ngFor...), en estos módulos nuevos tenemos que importar CommonModule.
+Y como apunte indicar que también funciona si se importa BrowserModule.
