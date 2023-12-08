@@ -30,3 +30,7 @@ Lo primero que vamos a hacer es ir al fuente package.json y sustituir, en "scrip
 ```
 
 Y para ejecutar nuestro proyecto ejecutaremos: `npm start`
+
+### Estructura de ficheros del proyecto
+
+Ir a la ruta siguiente: https://angular.io/guide/file-structure
