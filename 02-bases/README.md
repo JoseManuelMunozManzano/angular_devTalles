@@ -91,3 +91,25 @@ Angular maneja el two way data binding, es decir, si cambio desde el lado del te
 En las aplicaciones de Angular hay que tratar de priorizar el one way data binding.
 
 De todas formas, Angular es capaz de evitar bucles infinitos en el que un cambio en el template fuerza un cambio en el componente, que fuerza de nuevo el cambio en el template...
+
+## Módulos en Angular
+
+El módulo en sí mismo es un encapsulador. Encapsula una funcionalidad de tal manera que, si necesito compartirla, me facilita la existencia y me protege el módulo del mundo exterior.
+
+Cualquier aplicación de Angular DEBE tener más de un módulo (salvo que la app sea super pequeña)
+
+Como ya es un poco grande, vamos a separar los componentes que aparecen en app.module.ts.
+
+Se pueden crear módulos en Angular usando el CLI, mediante snippets, o manualmente.
+
+Dentro de la carpeta counter, vamos a crearnos otra carpeta llamada components.
+
+Dentro de la carpeta components vamos a crear otra carpeta llamada counter y arrastramos el fuente counter.components.ts a su interior.
+
+La idea de nuestro módulo personalizado es que me sirva para agrupar todo lo relacionado a counter.
+
+Creamos un archivo en app/counter llamado counter.module.ts y llevamos ahí la definición de los componentes de counter.
+
+Exportaremos los COMPONENTES que queramos exponer al mundo exterior e importaremos el MÓDULO dentro de los módulos donde queramos usar esos componentes.
+
+Así se separan componentes en distintos módulos.
