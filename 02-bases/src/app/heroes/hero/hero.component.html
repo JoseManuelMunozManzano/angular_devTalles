@@ -8,7 +8,7 @@
   <td>Edad:</td>
   <dd>{{ age }}</dd>
 
-  <td>Métdo:</td>
+  <td>Método:</td>
   <dd>{{ getHeroDescription() }}</dd>
 
   <td>Capitalizado:</td>
@@ -16,6 +16,21 @@
   <dd>{{ capitalizedName }}</dd>
 </dl>
 
-<button (click)="changeHero()" class="btn btn-primary">Cambiar Nombre</button>
+<!-- Directiva *ngIf. Con propiedades propias de Angular no hace falta indicar la doble llave {{ }}
+     Solo es necesario indicar una expresión de JavaScript. Si la expresión regresa true o truthy
+     mostrará el botón, y si es false o falsy (0, null o undefined) lo destruirá.
+-->
+<button
+  *ngIf="name !== 'spiderman'"
+  (click)="changeHero()"
+  class="btn btn-primary"
+>
+  Cambiar Nombre
+</button>
 
-<button (click)="changeAge()" class="btn btn-primary mx-2">Cambiar Edad</button>
+<button *ngIf="age !== 25" (click)="changeAge()" class="btn btn-primary mx-2">
+  Cambiar Edad
+</button>
+
+<!-- Las directivas de Angular también son parte del ciclo de detección de cambios de Angular -->
+<button (click)="resetForm()" class="btn btn-primary">Reset</button>

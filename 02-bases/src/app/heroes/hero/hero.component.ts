@@ -26,4 +26,16 @@ export class HeroComponent {
   changeAge(): void {
     this.age = 25;
   }
+
+  resetForm(): void {
+    this.name = 'ironman';
+    this.age = 45;
+
+    // Este código NO entra dentro del ciclo de detección de cambios de Angular
+    // Es decir, se cambian los h1, pero no cambian automáticamente las otras variables asociadas.
+    //
+    // document.querySelectorAll('h1')!.forEach((element) => {
+    //   element.innerHTML = '<h1>Desde Angular</h1>';
+    // });
+  }
 }
