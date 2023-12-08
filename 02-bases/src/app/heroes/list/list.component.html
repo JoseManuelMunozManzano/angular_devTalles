@@ -4,10 +4,38 @@
 -->
 <h3>Listado de Héroes</h3>
 
-<h3>Héroe borrado <small class="text-danger">XXXXX</small></h3>
-<h3>No ha borrado nada.</h3>
+<!-- Directiva *ngIf-else
+  Se indica en el else el nombre del template a mostrar si no se cumple el if.
+  Se le llama referencia local.
+  NOTA: El div es innecesario, pero lo creo para ver la diferencia con ng-template.
+    El div aparecerá físicamente en la página, pero el ng-template no.
+-->
+<div *ngIf="deletedHero; else nothingWasDeleted">
+  <h3>
+    Héroe borrado <small class="text-danger">{{ deletedHero }}</small>
+  </h3>
+</div>
 
-<button class="btn btn-outline-danger">Borrar último héroe</button>
+<!-- No tiene mucho sentido usar el *ngIf dos veces para lo mismo. Mejor usar el ng-template -->
+<!-- <h3 *ngIf="!deletedHero">No ha borrado nada.</h3> -->
+<!-- El ng-template es como un div que no existe, es decir, en la página no se ve.
+    Es muy útil porque puede que un div rompa el estilo de la página, pero ng-template
+    no la va a romper. En React sería <></>
+    Para que se muestre el contenido interno (el h3 en este caso) tenemos que indicar al
+    ng-template cuando y como va a mostrarse.
+    Se indica con el nombre del template indicado en el else, tras el símbolo #
+ -->
+<ng-template #nothingWasDeleted>
+  <h3 *ngIf="!deletedHero">No ha borrado nada.</h3>
+</ng-template>
+
+<button
+  *ngIf="heroNames.length > 0"
+  (click)="removeLastHero()"
+  class="btn btn-outline-danger"
+>
+  Borrar último héroe
+</button>
 
 <ul class="mt-2 list-group">
   <li *ngFor="let name of heroNames" class="list-group-item">{{ name }}</li>
