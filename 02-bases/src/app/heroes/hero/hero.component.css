@@ -1,4 +1,9 @@
 /* Los estilos solo se aplican en este módulo heroes */
 h1 {
-  font-size: 100px;
+  font-size: 50px;
+}
+
+dd {
+  font-size: 2rem;
+  font-weight: bold;
 }

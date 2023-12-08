@@ -77,3 +77,7 @@ E igual para /list
 ```
   ng g c heroes/list
 ```
+
+## Interpolación de valores
+
+Ir a la ruta siguiente: https://angular.io/guide/interpolation
