@@ -7,9 +7,9 @@ Proyecto creado con el comando: `ng new bases --standalone false`
 
 Luego sustituimos el nombre a 02-bases
 
-### Ejecución del proyecto usando el CLI
-
 Si descargamos el fuente de GitHub, primero instalar los módulos de node: `npm i`
+
+### Ejecución del proyecto usando el CLI
 
 Para ver como luce el proyecto en modo desarrollo, desde la terminal ejecutar el comando CLI: `ng serve`
 
