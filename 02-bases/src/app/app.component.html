@@ -6,3 +6,10 @@
 <button (click)="increaseBy(+1)">+1</button>
 <button (click)="resetCounter()">Reset</button>
 <button (click)="increaseBy(-1)">-1</button>
+
+<hr />
+<!-- Para que esto funcione hemos tenido que añadir en app.modules,
+     en la parte declarations, nuestro CounterComponent.
+     Y aquí indicamos lo que pusimos en el selector de CounterComponent.
+-->
+<app-counter></app-counter>
