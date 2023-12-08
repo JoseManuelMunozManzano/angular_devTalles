@@ -1,3 +1,8 @@
 <h1>{{ title }}</h1>
 <hr />
 <h3>Counter: {{ counter }}</h3>
+
+<!-- No hace falta indicar this.increaseBy() porque ya sabe que hace referencia a app.component.ts -->
+<button (click)="increaseBy(+1)">+1</button>
+<button (click)="resetCounter()">Reset</button>
+<button (click)="increaseBy(-1)">-1</button>
