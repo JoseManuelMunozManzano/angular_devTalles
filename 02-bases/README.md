@@ -146,3 +146,25 @@ En dbz.module.ts, en declarations, indicamos MainPageComponent y lo exportamos t
 En `app.module.ts` importamos (en imports) el módulo DbzModule.
 
 En `app.component.html` hacemos uso del componente indicando `<app-dbz-main-page></app-dbz-main-page>`
+
+## Generando componente usando VSCode y la extensión Angular Schematics
+
+Si, usando VSCode, nos vamos a la carpeta /dbz/components y pulsamos botón derecho sobre el, aparecerá un menú flotante.
+
+Seleccionar Angular Schematics: Generate a file
+
+Seleccionar Component
+
+Confirmar que el path es el correcto y escribir el nombre que queremos, en este caso `list`
+
+Indicar los módulos a importar y confirmar.
+
+A mi esto no me acaba de funcionar bien porque no me genera todos los ficheros, solo el .ts y el .css
+
+Con el CLI se puede ejecutar: `ng g c dbz/components/list` y ya si me genera los 4 ficheros, el .css, el .html. el .spec.ts y el .ts
+
+Se actualiza automáticamente nuestro módulo dbz.module.ts (en las declarations)
+
+Le cambiamos el nombre del módulo, en selector, para que en vez de `selector: 'app-list'` indicar `selector: 'dbz-list'`
+
+Así, las personas que vean dbz- sabrán que el módulo es dbz
