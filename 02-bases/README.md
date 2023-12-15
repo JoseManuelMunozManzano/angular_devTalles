@@ -118,3 +118,31 @@ Así se separan componentes en distintos módulos.
 
 NOTA: Si se usan directivas (*ngIf, *ngFor...), en estos módulos nuevos tenemos que importar CommonModule.
 Y como apunte indicar que también funciona si se importa BrowserModule.
+
+## Módulo DBZ (Dragon Ball Z) creado con CLI, y creación manual de carpetas/ficheros
+
+Vamos a crear un módulo con personajes de Dragon Ball Z.
+
+Abrir la terminal integrada en VSCode y en la carpeta del proyecto escribir:
+
+```
+  ng g m dbz
+```
+
+Esto genera en el proyecto una carpeta dbz y dentro un fichero llamado `dbz.module.ts`
+
+Creamos manualmente las carpetas components, interfaces, pages y services, dentro de la carpeta dbz.
+
+Dentro de la carpeta pages, vamos a crear un componente (una página, el router) en el cual se puedan agrupar todos los demás componentes.
+
+Lo llamamos main-page.component.ts, y, para empezar a codificar rápido, usamos el snippet `a-component`
+
+Le ponemos como nombre al componente `MainPageComponent`, como selector `app-dbz-main-page` y como templateUrl `./main-page.component.html`
+
+También creamos el template-url con nombre `main-page.component.html`
+
+En dbz.module.ts, en declarations, indicamos MainPageComponent y lo exportamos también (exports)
+
+En `app.module.ts` importamos (en imports) el módulo DbzModule.
+
+En `app.component.html` hacemos uso del componente indicando `<app-dbz-main-page></app-dbz-main-page>`
