@@ -50,3 +50,14 @@ Veremos:
 - Directivas creadas por Angular
 - ngIf y ngIf-else
 - Y más...
+
+Como parte de la expansión de las bases de Angular veremos:
+
+- Profundizar un poco más en los módulos
+- FormsModule
+- ngModel
+- @Inputs
+- @outputs
+- Servicios
+- Métodos en servicios
+- Depuraciones
