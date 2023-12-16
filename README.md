@@ -8,6 +8,7 @@ Direcciones web importantes:
 
 - https://angular.dev/
 - https://angular.io/
+- https://developer.mozilla.org/es/docs/Web/JavaScript
 
 Documentación importante:
 
