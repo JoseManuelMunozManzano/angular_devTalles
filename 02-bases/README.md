@@ -262,3 +262,18 @@ TRUCO: Un truco muy poderoso en Angular
 `<pre>{{ character | json }}</pre>`
 
 Nos devuelve, en vez de [object Object], el resultado ya como json del objeto.
+
+## Emitir eventos al padre
+
+Para emitir eventos del hijo al padre se usa la anotación @Output()
+
+Aquí entra en juego las suscripciones y RxJs.
+
+En nuestros fuentes, el componente hijo es add-character.component.ts, que emite al padre main-page.component.ts el evento onNewCharacter.
+
+IMPORTANTE:
+
+- Cuando queremos mandar mediante inputs información del padre al hijo usamos las llaves cuadradas []
+  - [] son atributos
+- Cuando queremos escuchar eventos, lo hacemos con paréntesis ()
+  - () son eventos

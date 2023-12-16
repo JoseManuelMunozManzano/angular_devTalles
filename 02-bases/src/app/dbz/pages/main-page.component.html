@@ -12,6 +12,18 @@
   </div>
 
   <div class="col">
-    <dbz-add-character></dbz-add-character>
+    <!-- De alguna manera, este componente me tiene que dar la información necesaria para poder
+      guardar el heroe en el array de characters.
+      Para lograr esto, tenemos que emitir ese valor.
+
+      El (onNewCharacter) proviene de add-character.component.ts
+      En el componente padre, main-page.component.ts crearemos un método onNewCharacter()
+      Y le mandamos un parámetro de tipo Character. Lo recibimos con $event.
+      $event es un nombre específico y Angular sabe que el valor que emite (onNewCharacter)
+      irá a ese parámetro.
+    -->
+    <dbz-add-character
+      (onNewCharacter)="onNewCharacter($event)"
+    ></dbz-add-character>
   </div>
 </div>
