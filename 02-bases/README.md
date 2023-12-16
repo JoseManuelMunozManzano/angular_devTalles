@@ -277,3 +277,13 @@ IMPORTANTE:
   - [] son atributos
 - Cuando queremos escuchar eventos, lo hacemos con paréntesis ()
   - () son eventos
+
+## Formas de depurar la app
+
+Tenemos:
+
+- Las devtools de Angular. No son tan potentes como las de React o Vue, pero van mejorando
+- console.log()
+- Breakpoints
+  - En VSCode
+  - Con la instrucción: `debugger;` para que pare en ese punto en el navegador. Una vez ha parado en el navegador podemos añadir más breakpoints

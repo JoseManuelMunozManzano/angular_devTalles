@@ -22,7 +22,10 @@ export class AddCharacterComponent {
   };
 
   emitCharacter(): void {
-    console.log(this.character);
+    // En el navegador la ejecución parará aquí para que podamos hacer debug
+    // debugger;
+
+    // console.log(this.character);
 
     if (this.character.name.length === 0) return;
 
@@ -30,7 +33,6 @@ export class AddCharacterComponent {
     this.onNewCharacter.emit(this.character);
 
     // De nuevo usamos aquí Two Way Data Binding, ahora para resetear los valores.
-    this.character.name = '';
-    this.character.power = 0;
+    this.character = { name: '', power: 0 };
   }
 }
