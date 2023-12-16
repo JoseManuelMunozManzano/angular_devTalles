@@ -29,7 +29,7 @@ export class DbzService {
     },
   ];
 
-  onNewCharacter(character: Character): void {
+  addCharacter(character: Character): void {
     // Buena práctica: usar operador spread, porque si tenemos que añadir/eliminar
     // propiedades a Character, no hay que tocar este código.
     // Lo mejor es añadir el operador spread y luego lo que queremos sobreescribir.

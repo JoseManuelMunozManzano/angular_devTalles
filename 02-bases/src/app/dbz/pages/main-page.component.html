@@ -9,10 +9,10 @@
     <!-- Gracias a TypeScript sabemos que tenemos que indicar un arreglo de tipo Character -->
     <!-- Podríamos mandar un arreglo vacío "[]", pero en este caso tenemos nuestros characters -->
     <!--  -->
-    <!-- Escuchamos el evento onDelete y lo conectamos con el método deleteCharacterById(). El valor que es emitido lo tenemos con $event -->
+    <!-- Escuchamos el evento onDelete y lo conectamos con el método onDeleteCharacter(). El valor que es emitido lo tenemos con $event -->
     <dbz-list
-      [characterList]="dbzService.characters"
-      (onDelete)="dbzService.deleteCharacterById($event)"
+      [characterList]="characters"
+      (onDelete)="onDeleteCharacter($event)"
     ></dbz-list>
   </div>
 
@@ -23,14 +23,13 @@
 
       El (onNewCharacter) proviene de add-character.component.ts
       En el componente padre, main-page.component.ts crearemos un método onNewCharacter()
-      NOTA: Ahora está en el service
 
       Y le mandamos un parámetro de tipo Character. Lo recibimos con $event.
       $event es un nombre específico y Angular sabe que el valor que emite (onNewCharacter)
       irá a ese parámetro.
     -->
     <dbz-add-character
-      (onNewCharacter)="dbzService.onNewCharacter($event)"
+      (onNewCharacter)="onNewCharacter($event)"
     ></dbz-add-character>
   </div>
 </div>
