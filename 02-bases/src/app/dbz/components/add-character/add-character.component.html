@@ -1,9 +1,37 @@
 <h4>Agregar personaje</h4>
 <form class="row">
-  <input type="text" class="form-control mb-2" placeholder="Nombre" />
-  <input type="number" class="form-control mb-2" placeholder="Poder" />
+  <!-- Two Way Data Binding -->
+  <!-- Para que funcione ngModel hay que importar FormsModule en los modules donde vayamos a usarlo -->
+  <!-- Para evitar un warning del navegador, hay que indicar el name, que sirve
+      para indicar que este input es parte de un formulario -->
+  <!-- O si queremos que el input sea aislado, [ngModelOptions]="{standalone: true}" -->
+  <input
+    type="text"
+    [(ngModel)]="character.name"
+    name="name"
+    class="form-control mb-2"
+    placeholder="Nombre"
+  />
+
+  <input
+    type="number"
+    [(ngModel)]="character.power"
+    name="power"
+    class="form-control mb-2"
+    placeholder="Poder"
+  />
 
   <!-- Con submit, cuando se presione Enter hará el Post y se refrescará la página. -->
   <!-- Este refresco no hace falta que suceda en Angular, pero veremos como lo trabajamos -->
-  <button type="submit" class="btn btn-primary">Agregar</button>
+  <!-- Desde que añadimos FormsModule, el submit ya no refresca la página -->
+  <!-- Para ver la información en consola (método emitCharacter) vamos a indicar el evento (click)
+    Debería ser cuando en el formulario se hace un submit, pero como por ahora
+    no hemos visto otro evento, vamos a hacerlo así.
+   -->
+  <button type="submit" class="btn btn-primary" (click)="emitCharacter()">
+    Agregar
+  </button>
+
+  <!-- Para ver nuestro objeto como json -->
+  <pre>{{ character | json }}</pre>
 </form>

@@ -236,3 +236,29 @@ Ejemplo:
 ```
 
 IMPORTANTE: Al indicar llaves cuadradas, por ejemplo `[class]="'list-group-item'"`, estamos diciendo que Angular tome el control, y lo que haya tras el signo igual debe ser una expresión de JavaScript.
+
+## FormsModule y ngModel
+
+Hay una sección del curso dedicada a formularios porque Angular da muchas cosas para poder trabajar con ellos.
+
+Por ahora, lo que vamos a ver es muy simple, usando Two Data Binding.
+
+[()] a esto se le conoce como la caja de bananas. Significa que estamos asociando un evento y un atributo a la vez. Esto es la forma de usar Two Data Binding.
+
+Cuando cambie el input cambiará la referencia del fuente .ts
+
+Para que no de error hay que importar (imports) FormsModule en los modules donde se use el componente.
+
+IMPORTANTE: No se recomienda el uso de Two Way Data Binding en formularios.
+Two Way Data Binding es:
+
+- Cuando en el fuente .ts se cambia el valor de una variable, este valor cambiado se refleja en el fuente .html
+- Y cuando en el fuente .html se cambia el valor de una variable, este valor cambiado se refleja en el fuente .ts
+
+Esto no es bueno hacerlo en formularios porque da lugar a efectos secundarios indeseados.
+
+TRUCO: Un truco muy poderoso en Angular
+
+`<pre>{{ character | json }}</pre>`
+
+Nos devuelve, en vez de [object Object], el resultado ya como json del objeto.
