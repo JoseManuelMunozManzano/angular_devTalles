@@ -287,3 +287,31 @@ Tenemos:
 - Breakpoints
   - En VSCode
   - Con la instrucción: `debugger;` para que pare en ese punto en el navegador. Una vez ha parado en el navegador podemos añadir más breakpoints
+
+## Servicios
+
+Tenemos que pensar cual es el lugar correcto para mantener nuestra información, es decir, la data o el estado que se va generando mientras los usuarios usan nuestra app.
+
+No tiene sentido que los characters estén en main-page.component.ts
+
+Tampoco es correcto que en ese mismo fuente esté la lógica para editar esos personajes.
+
+Esto es porque puede haber otro componente en el que se necesiten esos personajes, y va a ser muy complicado compartir esa información.
+
+Cuando implementemos la parte del Router, sistemas de rutas, veremos que la comunicación entre padres e hijos no va a ser posible, porque en ese nivel no van a existir padres ni hijos, sino hermanos, es decir, páginas al mismo nivel, y no vamos a poder tener elementos dentro unos de otros.
+
+Para manejar toda esta problemática tenemos los servicios: `https://angular.io/guide/singleton-services`
+
+Inyectaremos un servicio (Inyección de dependencias) y Angular se encargará de proporcionar una instancia de ese servicio (singleton) a lo largo de toda la app.
+
+Esto fomenta la composición en lugar de la herencia.
+
+El objetivo del servicio que vamos a crear es que tenga la lógica de negocio para manejar los characters.
+
+Hay muchas formas de generar un servicio:
+
+- Manualmente
+  - Lo creamos así, creando un archivo dentro de la carpeta `dbz/services` llamado `dbz.service.ts`
+  - Usaremos luego el snippet `a-service`
+- Usando Angular CLI
+- Con la extensión Angular Schematics

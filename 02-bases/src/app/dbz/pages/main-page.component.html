@@ -11,8 +11,8 @@
     <!--  -->
     <!-- Escuchamos el evento onDelete y lo conectamos con el método onDeleteCharacter(). El valor que es emitido lo tenemos con $event -->
     <dbz-list
-      [characterList]="characters"
-      (onDelete)="onDeleteCharacter($event)"
+      [characterList]="dbzService.characters"
+      (onDelete)="dbzService.onDeleteCharacter($event)"
     ></dbz-list>
   </div>
 
@@ -23,12 +23,14 @@
 
       El (onNewCharacter) proviene de add-character.component.ts
       En el componente padre, main-page.component.ts crearemos un método onNewCharacter()
+      NOTA: Ahora está en el service
+
       Y le mandamos un parámetro de tipo Character. Lo recibimos con $event.
       $event es un nombre específico y Angular sabe que el valor que emite (onNewCharacter)
       irá a ese parámetro.
     -->
     <dbz-add-character
-      (onNewCharacter)="onNewCharacter($event)"
+      (onNewCharacter)="dbzService.onNewCharacter($event)"
     ></dbz-add-character>
   </div>
 </div>

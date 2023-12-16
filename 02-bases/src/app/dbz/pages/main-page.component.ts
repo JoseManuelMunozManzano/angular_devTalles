@@ -1,35 +1,15 @@
 import { Component } from '@angular/core';
-import { type Character } from '../interfaces/character.interface';
+
+import { DbzService } from '../services/dbz.service';
 
 @Component({
   selector: 'app-dbz-main-page',
   templateUrl: './main-page.component.html',
 })
 export class MainPageComponent {
-  public characters: Character[] = [
-    // Esto no debería ser el lugar donde ubicar la data, pero todavía no hemos visto
-    // otras estructuras para mantener nuestra información.
-    {
-      name: 'Krilin',
-      power: 1000,
-    },
-    {
-      name: 'Goku',
-      power: 9500,
-    },
-    {
-      name: 'Vegeta',
-      power: 7500,
-    },
-  ];
-
-  onNewCharacter(character: Character): void {
-    // console.log('Main Page');
-    // console.log(character);
-    this.characters.push(character);
-  }
-
-  onDeleteCharacter(index: number): void {
-    this.characters.splice(index, 1);
-  }
+  // En el constructor hacemos la inyección de dependencias.
+  // Luego estas properties serán privadas, pero por ahora lo ponemos público para hacer
+  // referencia a dbzService en el fuente main-page.component.html
+  // NOTA: No es correcto hacer referencia directamente al servicio.
+  constructor(public dbzService: DbzService) {}
 }
