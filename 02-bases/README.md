@@ -315,3 +315,16 @@ Hay muchas formas de generar un servicio:
   - Usaremos luego el snippet `a-service`
 - Usando Angular CLI
 - Con la extensión Angular Schematics
+
+## Paquetes externos - UUID
+
+https://www.npmjs.com/package/uuid
+
+Instalación:
+
+```
+  npm i uuid
+  npm i --save-dev @types/uuid
+```
+
+Con este paquete podemos trabajar con IDs únicos en vez de con el índice del elemento, que es muy volátil.

@@ -18,6 +18,8 @@
       <span>{{ character.power }}</span>
     </div>
     <!-- Al tocar el botón emitiremos un valor -->
-    <button class="btn btn-danger" (click)="onDeleteCharacter(i)">X</button>
+    <button class="btn btn-danger" (click)="onDeleteCharacter(character.id)">
+      X
+    </button>
   </li>
 </ul>
