@@ -218,3 +218,21 @@ Pero podemos obtener esos datos dentro del \*ngFor usando first, last, even, odd
 
 Hay más objetos que expone el \*ngFor.
 https://angular.io/api/common/NgFor
+
+## [ngClass] - Clases basado en condiciones
+
+Añade clases de manera condicional.
+
+Diferentes valores de Bootstrap basado en condiciones.
+https://getbootstrap.com/docs/5.3/components/list-group/#variants
+
+Ejemplo:
+
+```
+  [ngClass]="{
+    'list-group-item-dark': isLast,
+    'list-group-item-primary': isEven,
+  }"
+```
+
+IMPORTANTE: Al indicar llaves cuadradas, por ejemplo `[class]="'list-group-item'"`, estamos diciendo que Angular tome el control, y lo que haya tras el signo igual debe ser una expresión de JavaScript.
