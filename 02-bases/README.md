@@ -168,3 +168,7 @@ Se actualiza automáticamente nuestro módulo dbz.module.ts (en las declarations
 Le cambiamos el nombre del módulo, en selector, para que en vez de `selector: 'app-list'` indicar `selector: 'dbz-list'`
 
 Así, las personas que vean dbz- sabrán que el módulo es dbz
+
+## Comunicación entre componentes
+
+Se usa el decorador @Input(), que permite al componente hijo recibir una información del padre.

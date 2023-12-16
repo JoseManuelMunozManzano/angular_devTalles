@@ -4,7 +4,11 @@
 <!-- Usando componentes pequeños, fáciles de mantener y reutilizar -->
 <div class="row">
   <div class="col">
-    <dbz-list></dbz-list>
+    <!-- Funcionando con el @Input que tenemos en list.component.ts -->
+    <!-- Aquí indicamos, para characterList, el nombre que enviamos al hijo -->
+    <!-- Gracias a TypeScript sabemos que tenemos que indicar un arreglo de tipo Character -->
+    <!-- Podríamos mandar un arreglo vacío "[]", pero en este caso tenemos nuestros characters -->
+    <dbz-list [characterList]="characters"></dbz-list>
   </div>
 
   <div class="col">
