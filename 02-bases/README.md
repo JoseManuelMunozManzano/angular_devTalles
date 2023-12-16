@@ -172,3 +172,49 @@ Así, las personas que vean dbz- sabrán que el módulo es dbz
 ## Comunicación entre componentes
 
 Se usa el decorador @Input(), que permite al componente hijo recibir una información del padre.
+
+## Expandiendo el \*ngFor
+
+- Si queremos obtener el índice de un elemento
+
+```
+  *ngFor="let character of characterList; let i = index"
+```
+
+Recordar que entre comillas, dentro del \*ngFor, lo que hay es JavaScript.
+
+index ya está siendo definido en nuestro \*ngFor por defecto. Con esto, la variable i ya se puede usar.
+
+Indicar que index empieza en cero.
+
+- Si queremos agregar algún tipo de condición
+
+La forma básica sería con código JavaScript como en este ejemplo, en el que obtenemos si es el primer o último elemento de la lista:
+
+```
+    <span>{{ character.power }} </span>
+    <br />
+    <span>Es el primero: {{ i === 0 }} </span>
+    <br />
+    <span>Es el último: {{ i === characterList.length - 1 }}</span>
+```
+
+Pero podemos obtener esos datos dentro del \*ngFor usando first, last, even, odd, que son otros objetos que está exponiendo el \*ngFor.
+
+```
+    *ngFor="
+      let character of characterList;
+      let i = index;
+      let isFirst = first;
+      let isLast = last;
+      let isEven = even;      Si es par
+      let isOdd = odd;        Si es impar
+    "
+    ...
+    ...
+    <span>Es el primero: {{ isFirst }} </span>
+    <span>Es el último: {{ isLast }}</span>
+```
+
+Hay más objetos que expone el \*ngFor.
+https://angular.io/api/common/NgFor
