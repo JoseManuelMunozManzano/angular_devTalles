@@ -366,3 +366,54 @@ La url que me ha dado ha sido: https://lovely-haupia-54c7de.netlify.app/
 Se puede cambiar el nombre de la url.
 
 Esta Url se puede compartir para que la gente pruebe, demostraciones a clientes, etc. y no hace falta pagar nada.
+
+### GitHub Pages
+
+GitHub Pages es un servicio extra que tiene GitHub y que sirve para servir contenido estático (el servidor no va a crear nuevos archivos)
+
+https://github.com/
+
+Hay que crearse un nuevo repositorio del proyecto, solo con ese proyecto. En mi caso:
+
+https://github.com/JoseManuelMunozManzano/angular-primeros-pasos-deploy-dbz
+
+Ahora:
+
+- Pulsar en Setings
+- En el menú de la izquierda pulsar en Pages
+- En Source hay un desplegable. Se puede seleccionar:
+  - De una rama. Seleccionamos este!!
+  - Usando GitHub Actions (en Beta)
+- Donde indica Branch, seleccionar main
+- Ahora indica que se puede desplegar el /root, pero entonces intentaría desplegar el repositorio, cosa que no va a funcionar porque tenemos código. Hay que seleccionar el /docs, aunque esta carpeta no existe en nuestro repositorio
+  - Tenemos que crear la carpeta docs en el proyecto, en VSCode
+  - Para ello, en VSCode, cogemos la carpeta browser, que está en /dist/bases/browser y la dejamos caer en la raiz de nuestra app
+  - La carpeta la renombramos a docs
+  - Hacemos el commit y el push para subirlo a GitHub
+  - Con esto, en nuestro repositorio ya tenemos la carpeta /docs con el contenido que queremos hacer el deploy
+- Ahora podemos pulsar el botón Save a la derecha del desplegable donde hemos seleccionado /docs
+- Este proceso hace una acción automática, que cada vez que hagamos un despliegue de la carpeta docs a la rama main, automáticamente va a ejecutar este proceso
+- Si hacemos click en Actions, veremos la acción asociada a ese despliegue. Cuando se vea un círculo verde con una V en su interior, sabremos que ha terminado correctamente.
+- Si pulsamos en el nombre de la acción veremos un cuadro con el texto deploy y la URL de la app.
+- Pulsamos en esa URL, pero veremos que NO FUNCIONA, porque no logra encontrar (404) ningún archivo (ver el texto de error con F12) porque los está intentando buscarlos en la raiz (josemanuelmunozmanzano.github.io) pero la aplicación no está desplegada ahí, sino en el nombre del repositorio, es decir, sería algo así como: https://josemanuelmunozmanzano.github.io/angular-primeros-pasos-deploy-dbz/runtime.00xxxxxxxxx
+  - La URL es: https://josemanuelmunozmanzano.github.io/angular-primeros-pasos-deploy-dbz/
+- Hay varias maneras de solventar este problema
+  - En VSCode, en la carpeta docs, en el fichero index.html, hacer el cambio siguiente:
+
+```
+    De
+    <base href="/">
+
+    A
+    <base href="./">
+    Para que sea relativo al path donde se encuentra
+```
+
+CUIDADO: Cada vez que se haga el build se perderá este cambio.
+
+Volvemos a subir todo a GitHub.
+Automáticamente se va a generar el GitHub Pages. VAmos a Actions y veremos la acción nueva de despliegue.
+La URL que me da es: https://josemanuelmunozmanzano.github.io/angular-primeros-pasos-deploy-dbz/
+Pulsamos y vemos que la página web ya funciona.
+
+Vamos a automatizar este proceso para no tener que hacer tanta carpintería, usando los scripts de package.json.
