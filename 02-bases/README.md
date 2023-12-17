@@ -334,3 +334,35 @@ Con este paquete podemos trabajar con IDs únicos en vez de con el índice del e
 Ir a la carpeta del proyecto y ejecutar `npm run build`, que a su vez ejecuta el comando de Angular CLI `ng build`.
 
 Esto genera la carpeta dist, ya con el contenido que habrá que subir a la web.
+
+## Despliegues a Producción
+
+### http-server
+
+http-server es un paquete de Node que sirve para probar y montar un servidor http sin ninguna configuración.
+
+https://www.npmjs.com/package/http-server
+
+Para instalar de manera local al proyecto, ejecutar: `npm i -D http-server`
+
+Una vez instalado ir a la ruta donde tenemos el build de producción del proyecto, en mi caso /dist/bases/browser, y ejecutar `npx http-server -o`
+
+Si examinamos, veremos que ya no podemos usar, en las herramientas de desarrollo, las Angular DevTools. Esto es porque, a nivel local, está en producción, no en desarrollo.
+
+Y en la terminal veremos distintas Urls que podemos usar para probar la app.
+
+### Netlify
+
+Es un servicio que nos permite desplegar rápidamente las aplicaciones, probar cosas.. y tiene un tier gratuito muy bueno.
+
+https://www.netlify.com/
+
+Yo hago login con mi usuario de GitHub.
+
+Lo que haremos es arrastrar la carpeta que contiene el código, en mi caso /dist/bases/browser, en el recuadro que hay disponible para hacer el deploy de una nueva app.
+
+La url que me ha dado ha sido: https://lovely-haupia-54c7de.netlify.app/
+
+Se puede cambiar el nombre de la url.
+
+Esta Url se puede compartir para que la gente pruebe, demostraciones a clientes, etc. y no hace falta pagar nada.
