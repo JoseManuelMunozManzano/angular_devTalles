@@ -417,3 +417,86 @@ La URL que me da es: https://josemanuelmunozmanzano.github.io/angular-primeros-p
 Pulsamos y vemos que la página web ya funciona.
 
 Vamos a automatizar este proceso para no tener que hacer tanta carpintería, usando los scripts de package.json.
+
+### Package.json Scripts
+
+Lo que vamos a ver sirve para automatizar la creación de la carpeta docs y generar correctamente el path que necesitamos tener en la etiqueta base: `<base href="./">` para poder montar la app en GitHub Pages.
+
+Modificamos el fuente package.json, la parte de los scripts de la siguiente forma:
+
+```
+  "scripts": {
+    ...
+    "build:href": "ng build --base-href ./"
+  }
+```
+
+Y, para volver a generar la carpeta de distribución, ejecutaremos: `npm run build:href`
+
+Ahora hay que eliminar la carpeta docs. Para obtener compatibilidad con todos los sistemas operativos vamos a instalar un paquete de Node.
+
+- https://www.npmjs.com/package/del-cli
+  - Instalación: `npm i -D del-cli`
+
+Creamos un nuevo script en el fichero package.json
+
+```
+  "scripts": {
+    ...
+    "delete:docs": "del docs"
+  }
+```
+
+El siguiente paso es copiar los archivos de la carpeta de distribución a la carpeta docs. Para ello vamos a instalar otro paquete de Node, de nuevo para aumentar la compatibilidad entre los distintos sistemas operativos.
+
+Ejecución: `npm run delete:docs`
+
+- https://www.npmjs.com/package/copyfiles
+  - Instalación: `npm i -D copyfiles`
+
+Creamos un nuevo script en el fichero package.json
+
+```
+  "scripts": {
+    ...
+    "copy:dist": "copyfiles dist/bases/browser/* ./docs -f"
+  }
+```
+
+Donde la carpeta docs la crea si no existe y la bandera -f sirve para no crear los directorios bases y browser dentro de docs, es decir, aplana la salida.
+
+Ejecución: `npm run copy:dist`
+
+Y, por último, hacemos un script que auna todos estos comandos. De nuevo, en el fichero package.json, añadimos un nuevo script:
+
+```
+  "scripts": {
+    ...
+    "build:github": "npm run delete:docs && npm run build:href && npm run copy:dist"
+  }
+```
+
+Ejecutar con: `npm run build:github`
+
+Este es el único comando que necesitaremos ejecutar para generar la carpeta de distribución docs con el href="./", todo ya correcto para subir a GitHub Pages.
+
+### Fuente angular.json
+
+Otra forma de generar automáticamente la carpeta docs y el base href="./" es modificando directamente el fuente `angular.json`.
+
+Con esta forma evitamos instalar paquetes nuevos.
+
+```
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "docs/",          // Cambiar este a valor "docs/"
+            "baseHref": "./",               // Creado este con valor "./"
+            ...
+          }
+        }
+      }
+```
+
+Y ahora solo tenemos que crear la carpeta de distribución, que ahora se llamará docs: `npm run build`
