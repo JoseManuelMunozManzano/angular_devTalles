@@ -491,7 +491,11 @@ Con esta forma evitamos instalar paquetes nuevos.
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "docs/",          // Cambiar este a valor "docs/"
+            // Con llaves para indicar el valor docs/ y que no cree la carpeta browser
+            "outputPath": {
+              "base": "docs/",
+              "browser": ""
+            },
             "baseHref": "./",               // Creado este con valor "./"
             ...
           }
@@ -500,3 +504,10 @@ Con esta forma evitamos instalar paquetes nuevos.
 ```
 
 Y ahora solo tenemos que crear la carpeta de distribución, que ahora se llamará docs: `npm run build`
+
+Problemas con la creación de una carpeta browser dentro de dist:
+
+- Problema: https://github.com/angular/angular-cli/issues/26304
+- Solución: https://github.com/angular/angular-cli/pull/26675
+
+Ojo, esta solución empezó el día 15 de Diciembre de 2023.
