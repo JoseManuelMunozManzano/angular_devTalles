@@ -62,3 +62,15 @@ Como parte de la expansión de las bases de Angular veremos:
 - Servicios
 - Métodos en servicios
 - Depuraciones
+
+Como parte de despliegues a la web, veremos:
+
+- Generar build de producción
+- Desplegarlo rápidamente
+- Netlify
+- GitHub Pages
+- npm Scripts para automatizar el proceso
+
+Aquí aprenderemos como generar el build de producción de nuestra aplicación y la desplegaremos en la web.
+
+El proceso de despliegue en otros servidores es virtualmente el mismo, tomar nuestra carpeta DIST (que contiene la aplicación con archivos HTML, CSS y JS) y desplegarla mediante FTP (preferiblemente sFTP) en el hosting deseado.

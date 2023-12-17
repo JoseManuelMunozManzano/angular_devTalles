@@ -328,3 +328,9 @@ Instalación:
 ```
 
 Con este paquete podemos trabajar con IDs únicos en vez de con el índice del elemento, que es muy volátil.
+
+## Generar build de producción
+
+Ir a la carpeta del proyecto y ejecutar `npm run build`, que a su vez ejecuta el comando de Angular CLI `ng build`.
+
+Esto genera la carpeta dist, ya con el contenido que habrá que subir a la web.
