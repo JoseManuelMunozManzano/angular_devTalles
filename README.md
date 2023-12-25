@@ -74,3 +74,18 @@ Como parte de despliegues a la web, veremos:
 Aquí aprenderemos como generar el build de producción de nuestra aplicación y la desplegaremos en la web.
 
 El proceso de despliegue en otros servidores es virtualmente el mismo, tomar nuestra carpeta DIST (que contiene la aplicación con archivos HTML, CSS y JS) y desplegarla mediante FTP (preferiblemente sFTP) en el hosting deseado.
+
+## 03-gifs-app
+
+La sección contendrá nuestra primera aplicación real de Angular, este es un breve listado de los temas fundamentales:
+
+- Modularización de la aplicación
+- Estructura de la aplicación de media a gran escala
+- Componentes
+- ViewChild
+- Servicios
+- Historial de búsquedas
+- Uso de Api Keys
+- LocalStorage
+- Peticiones HTTP
+- Animaciones mediante CSS
