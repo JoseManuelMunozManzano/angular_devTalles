@@ -19,6 +19,8 @@ https://getbootstrap.com/
 
 ## Ejecución
 
+El fuente giphy-api.service.copy.ts hay que renombrarlo a giphy-api.service.ts e incluir la api key correcta.
+
 Se ha modificado el script start para que ejecute `ng serve -o`
 
 Accedemos a la carpeta del proyecto y ejecutamos: `ng serve -o` o `npm start`
@@ -63,3 +65,15 @@ Esta es la estructura que se va a usar en el proyecto.
 Indicar que, en proyectos más grandes, toda la interfaz de usuario, por ahora gifs y shared, podría moverse a una capa de presentación, y tendríamos todo lo demás como core, usecases, mappers...
 
 La idea es que lo que tenemos ahora es escalable.
+
+## Giphy Api Key
+
+https://developers.giphy.com/
+
+El fuente giphy-api.service.copy.ts hay que renombrarlo a giphy-api.service.ts e incluir la api key correcta.
+
+## Realizar una petición HTTP
+
+Hay muchas formas de realizar peticiones HTTP usando Angular.
+
+Angular viene con su propio paquete y componente para ello, basado en Observables.

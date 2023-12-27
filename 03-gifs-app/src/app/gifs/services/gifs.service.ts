@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+
+import { GIPHY_API_KEY } from './giphy-api.service';
 
 // Al indicar root, GifsService estará disponible en todos los módulos de toda la app
 // que inyecten este servicio. Esto está desde Angular 6
@@ -8,8 +11,11 @@ import { Injectable } from '@angular/core';
 @Injectable({ providedIn: 'root' })
 export class GifsService {
   private _tagsHistory: string[] = [];
+  private apiKey: string = GIPHY_API_KEY;
+  private serviceUrl: string = 'https://api.giphy.com/v1/gifs';
 
-  constructor() {}
+  // Inyectamos el servicio para hacer peticiones HTTP
+  constructor(private http: HttpClient) {}
 
   // Como el arreglo pasa por referencia, para evitar que se pueda manipular
   // usamos el operador spread para retornar una copia.
@@ -36,5 +42,27 @@ export class GifsService {
   searchTag(tag: string): void {
     if (tag.length === 0) return;
     this.organizeHistory(tag);
+
+    const params = new HttpParams()
+      .set('api_key', this.apiKey)
+      .set('limit', '10')
+      .set('q', tag);
+
+    // Así se haría una petición HTTP en JavaScript (La función sería async y devolvería Promise<void>)
+    // Funciona perfectamente en Angular.
+    // const resp = await fetch(
+    //   `https://api.giphy.com/v1/gifs/search?api_key=${this.apiKey}&q=${tag}&limit=10`
+    // );
+    // const data = await resp.json();
+    // console.log(data);
+    //
+    // Pero Angular viene con una forma propia de hacer peticiones HTTP. Hay que
+    // importarlo en app.module.ts porque podemos usarlo en muchos sitios, y ahí
+    // lo hacemos disponible a toda la app.
+    // Y lo hemos inyectado en nuestro constructor.
+
+    this.http.get(`${this.serviceUrl}/search`, { params }).subscribe((resp) => {
+      console.log(resp);
+    });
   }
 }
