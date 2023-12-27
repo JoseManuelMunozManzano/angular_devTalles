@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GifsService } from '../../../gifs/services/gifs.service';
 
 @Component({
   // El prefijo va a ser shared
@@ -6,4 +7,10 @@ import { Component } from '@angular/core';
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css',
 })
-export class SidebarComponent {}
+export class SidebarComponent {
+  constructor(private gifsService: GifsService) {}
+
+  get tags(): string[] {
+    return this.gifsService.tagsHistory;
+  }
+}

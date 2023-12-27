@@ -1,5 +1,6 @@
 // La barra de búsqueda no es un page, es una pieza específica para mi app.
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { GifsService } from '../../services/gifs.service';
 
 // No queremos poner NgModule solo para trabajar con un input, así que incluimos
 // #txtTagInput, que es una referencia local, es decir, en este caso, el
@@ -38,7 +39,8 @@ export class SearchBoxComponent {
   @ViewChild('txtTagInput')
   public tagInput!: ElementRef<HTMLInputElement>;
 
-  constructor() {}
+  // Para poder usar el servicio GifsService hay que inyectarlo
+  constructor(private gifsService: GifsService) {}
 
   // Sin usar el decorador @ViewChild
   //
@@ -53,6 +55,8 @@ export class SearchBoxComponent {
   searchTag() {
     const newTag = this.tagInput.nativeElement.value;
 
-    console.log({ newTag });
+    this.gifsService.searchTag(newTag);
+
+    this.tagInput.nativeElement.value = '';
   }
 }
