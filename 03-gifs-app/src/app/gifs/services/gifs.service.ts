@@ -19,8 +19,22 @@ export class GifsService {
     return [...this._tagsHistory];
   }
 
-  searchTag(tag: string): void {
-    // Añadir al principio
+  private organizeHistory(tag: string): void {
+    tag = tag.toLowerCase();
+
+    // Si existe el tag lo removemos y lo ponemos al inicio
+    if (this._tagsHistory.includes(tag)) {
+      this._tagsHistory = this._tagsHistory.filter((oldTag) => oldTag !== tag);
+    }
+
     this._tagsHistory.unshift(tag);
+
+    // Solo dejamos 10 elementos
+    this._tagsHistory = this._tagsHistory.splice(0, 10);
+  }
+
+  searchTag(tag: string): void {
+    if (tag.length === 0) return;
+    this.organizeHistory(tag);
   }
 }
