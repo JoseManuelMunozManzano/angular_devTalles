@@ -11,6 +11,8 @@ import type { Gif, SearchResponse } from '../interfaces/gifs.interfaces';
 // Y si queremos usarlo fuera tendremos que ponerlo también en exports
 @Injectable({ providedIn: 'root' })
 export class GifsService {
+  // Esta lista es muy volátil y por eso no hacemos un getter con el operador
+  // spread para pasar una copia. Eso si, se podría hacer.
   public gifList: Gif[] = [];
 
   private _tagsHistory: string[] = [];
@@ -68,7 +70,7 @@ export class GifsService {
       .get<SearchResponse>(`${this.serviceUrl}/search`, { params })
       .subscribe((resp) => {
         this.gifList = resp.data;
-        console.log({ gifs: this.gifList });
+        // console.log({ gifs: this.gifList });
       });
   }
 }
