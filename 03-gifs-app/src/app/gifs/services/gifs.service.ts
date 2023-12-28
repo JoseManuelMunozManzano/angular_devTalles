@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { GIPHY_API_KEY } from './giphy-api.service';
+import type { Gif, SearchResponse } from '../interfaces/gifs.interfaces';
 
 // Al indicar root, GifsService estará disponible en todos los módulos de toda la app
 // que inyecten este servicio. Esto está desde Angular 6
@@ -10,6 +11,8 @@ import { GIPHY_API_KEY } from './giphy-api.service';
 // Y si queremos usarlo fuera tendremos que ponerlo también en exports
 @Injectable({ providedIn: 'root' })
 export class GifsService {
+  public gifList: Gif[] = [];
+
   private _tagsHistory: string[] = [];
   private apiKey: string = GIPHY_API_KEY;
   private serviceUrl: string = 'https://api.giphy.com/v1/gifs';
@@ -61,8 +64,11 @@ export class GifsService {
     // lo hacemos disponible a toda la app.
     // Y lo hemos inyectado en nuestro constructor.
 
-    this.http.get(`${this.serviceUrl}/search`, { params }).subscribe((resp) => {
-      console.log(resp);
-    });
+    this.http
+      .get<SearchResponse>(`${this.serviceUrl}/search`, { params })
+      .subscribe((resp) => {
+        this.gifList = resp.data;
+        console.log({ gifs: this.gifList });
+      });
   }
 }
