@@ -20,7 +20,10 @@ export class GifsService {
   private serviceUrl: string = 'https://api.giphy.com/v1/gifs';
 
   // Inyectamos el servicio para hacer peticiones HTTP
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    // Cargamos lo que haya en localStorage
+    this.loadLocalStorage();
+  }
 
   // Como el arreglo pasa por referencia, para evitar que se pueda manipular
   // usamos el operador spread para retornar una copia.
@@ -48,6 +51,15 @@ export class GifsService {
 
   private saveLocalStorage(): void {
     localStorage.setItem('history', JSON.stringify(this._tagsHistory));
+  }
+
+  private loadLocalStorage(): void {
+    if (!localStorage.getItem('history')) return;
+
+    this._tagsHistory = JSON.parse(localStorage.getItem('history')!);
+
+    if (this._tagsHistory.length === 0) return;
+    this.searchTag(this._tagsHistory[0]);
   }
 
   searchTag(tag: string): void {
